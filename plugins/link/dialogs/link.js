@@ -162,6 +162,20 @@
 									data.url = {};
 
 								data.url.protocol = this.getValue();
+							},
+							onChange: function() {
+								// Erase default URL when default protocol is changed.
+								var proto = this.getValue();
+								var defaultProto = this.default;
+								var urlField = this.getDialog().getContentElement( 'info', 'url' );
+								var url = urlField.getValue();
+								var defaultUrl = urlField.default;
+								if (url === '' && proto === defaultProto) {
+								    urlField.setValue(defaultUrl);
+								}
+								if (url === defaultUrl && proto !== defaultProto) {
+								    urlField.setValue('');
+								}
 							}
 						},
 						{
