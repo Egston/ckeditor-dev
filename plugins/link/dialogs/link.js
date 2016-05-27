@@ -150,6 +150,7 @@
 								[ 'https://\u200E', 'https://' ],
 								[ 'ftp://\u200E', 'ftp://' ],
 								[ 'news://\u200E', 'news://' ],
+								[ 'file:///\u200E', 'file:///' ],
 								[ linkLang.other, '' ]
 							],
 							setup: function( data ) {
@@ -176,12 +177,24 @@
 								var protocolCmb = this.getDialog().getContentElement( 'info', 'protocol' ),
 									url = this.getValue(),
 									urlOnChangeProtocol = /^(http|https|ftp|news):\/\/(?=.)/i,
+									urlOnChangeCifs = /^file:\/\/\//i,
+									urlOnChangeTestCifs = /^"?\\\\/, // \\host\... or "\\host\..."
 									urlOnChangeTestOther = /^((javascript:)|[#\/\.\?])/i;
 
 								var protocol = urlOnChangeProtocol.exec( url );
+								var cifs = urlOnChangeCifs.exec( url );
 								if ( protocol ) {
 									this.setValue( url.substr( protocol[ 0 ].length ) );
 									protocolCmb.setValue( protocol[ 0 ].toLowerCase() );
+								} else if (cifs) {
+									this.setValue( url.substr( cifs[ 0 ].length ) );
+									protocolCmb.setValue( cifs[ 0 ].toLowerCase() );
+								} else if ( urlOnChangeTestCifs.test( url ) ) {
+									var sanitizedUrl = url.replace(/^"|"$/g, '');
+									if (url !== sanitizedUrl) {
+									    this.setValue(sanitizedUrl);
+									}
+									protocolCmb.setValue( 'file:///' );
 								} else if ( urlOnChangeTestOther.test( url ) ) {
 									protocolCmb.setValue( '' );
 								}
