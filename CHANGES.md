@@ -1,7 +1,13 @@
 CKEditor 4 Changelog
 ====================
+## CKEditor 4.6.0-egston/1.1.0
 
-## CKEditor 4.6
+ New Features:
+
+ * Added protocol file:// to the [Link](http://ckeditor.com/addon/link) plugin.
+ * Erase default URL when protocol is changed in [Link](http://ckeditor.com/addon/link) plugin.
+
+## CKEditor 4.6 (unreleased)
 
 New Features:
 
