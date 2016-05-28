@@ -19,6 +19,7 @@ CKEDITOR.plugins.setLang( 'link', 'de', {
 	anchorName: 'Nach Ankername',
 	charset: 'Verknüpfter Ressourcenzeichensatz',
 	cssClasses: 'Formatvorlagenklasse',
+	displayText: 'Display Text', // MISSING
 	download: 'Download erzwingen',
 	emailAddress: 'E-Mail-Adresse',
 	emailBody: 'Nachrichtentext',

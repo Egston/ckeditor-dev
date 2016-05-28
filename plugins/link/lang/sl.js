@@ -19,6 +19,7 @@ CKEDITOR.plugins.setLang( 'link', 'sl', {
 	anchorName: 'Po imenu zaznamka',
 	charset: 'Kodna tabela povezanega vira',
 	cssClasses: 'Razred stilne predloge',
+	displayText: 'Display Text', // MISSING
 	download: 'Force Download', // MISSING
 	emailAddress: 'Elektronski naslov',
 	emailBody: 'Vsebina sporočila',

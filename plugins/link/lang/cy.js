@@ -19,6 +19,7 @@ CKEDITOR.plugins.setLang( 'link', 'cy', {
 	anchorName: 'Gan Enw\'r Angor',
 	charset: 'Set Nodau\'r Adnodd Cysylltiedig',
 	cssClasses: 'Dosbarthiadau Dalen Arddull',
+	displayText: 'Display Text', // MISSING
 	download: 'Force Download', // MISSING
 	emailAddress: 'Cyfeiriad E-Bost',
 	emailBody: 'Corff y Neges',

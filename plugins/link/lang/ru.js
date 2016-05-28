@@ -19,6 +19,7 @@ CKEDITOR.plugins.setLang( 'link', 'ru', {
 	anchorName: 'По имени',
 	charset: 'Кодировка ресурса',
 	cssClasses: 'Классы CSS',
+	displayText: 'Display Text', // MISSING
 	download: 'Force Download', // MISSING
 	emailAddress: 'Email адрес',
 	emailBody: 'Текст сообщения',

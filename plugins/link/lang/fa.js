@@ -19,6 +19,7 @@ CKEDITOR.plugins.setLang( 'link', 'fa', {
 	anchorName: 'با نام لنگر',
 	charset: 'نویسه​گان منبع پیوند شده',
 	cssClasses: 'کلاس​های شیوه​نامه(Stylesheet)',
+	displayText: 'Display Text', // MISSING
 	download: 'Force Download', // MISSING
 	emailAddress: 'نشانی پست الکترونیکی',
 	emailBody: 'متن پیام',

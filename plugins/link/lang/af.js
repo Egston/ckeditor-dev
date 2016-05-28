@@ -19,6 +19,7 @@ CKEDITOR.plugins.setLang( 'link', 'af', {
 	anchorName: 'Op ankernaam',
 	charset: 'Karakterstel van geskakelde bron',
 	cssClasses: 'CSS klasse',
+	displayText: 'Display Text', // MISSING
 	download: 'Force Download', // MISSING
 	emailAddress: 'E-posadres',
 	emailBody: 'Berig-inhoud',
