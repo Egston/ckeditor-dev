@@ -1,5 +1,15 @@
 CKEditor 4 Changelog
 ====================
+## CKEditor 4.6.0-egston/2.0.0
+
+Partially Fixed Issues:
+
+* [#7154](https://dev.ckeditor.com/ticket/7154): Added support for a Display Text field to the [Link](http://ckeditor.com/addon/link) dialog.
+
+Other:
+
+* Merged in-progress 4.5.10
+
 ## CKEditor 4.6.0-egston/1.1.0
 
  New Features:
