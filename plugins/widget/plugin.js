@@ -3201,7 +3201,9 @@
 			editor = this.editor,
 			editable = editor.editable(),
 			listeners = [],
-			sorted = [];
+			sorted = [],
+			locations,
+			y;
 
 		// Mark dragged widget for repository#finder.
 		this.repository._.draggedWidget = this;
@@ -3220,9 +3222,7 @@
 					liner.placeLine( sorted[ 0 ] );
 					liner.cleanup();
 				}
-			} ),
-
-			locations, y;
+			} );
 
 		// Let's have the "dragging cursor" over entire editable.
 		editable.addClass( 'cke_widget_dragging' );
