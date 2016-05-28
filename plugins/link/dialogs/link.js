@@ -116,6 +116,20 @@
 				label: linkLang.info,
 				title: linkLang.info,
 				elements: [ {
+					type: 'text',
+					id: 'linkDisplayText',
+					label: linkLang.displayText,
+					required: true,
+					setup: function() {
+						this.enable();
+
+						this.setValue( editor.getSelection().getSelectedText() );
+					},
+					commit: function( data ) {
+						data.linkText = this.isEnabled() ? this.getValue() : '';
+					}
+				},
+				{
 					id: 'linkType',
 					type: 'select',
 					label: linkLang.type,
@@ -854,16 +868,23 @@
 				this.commitContent( data );
 
 				var selection = editor.getSelection(),
-					attributes = plugin.getLinkAttributes( editor, data );
+					attributes = plugin.getLinkAttributes( editor, data ),
+					selectedText = ( selection.getSelectedText() || '' ).replace( /\n/g, '' );
 
 				if ( !this._.selectedElement ) {
-					var range = selection.getRanges()[ 0 ];
+					var range = selection.getRanges()[ 0 ],
+						text;
 
 					// Use link URL as text with a collapsed cursor.
 					if ( range.collapsed ) {
 						// Short mailto link text view (#5736).
-						var text = new CKEDITOR.dom.text( data.type == 'email' ?
-							data.email.address : attributes.set[ 'data-cke-saved-href' ], editor.document );
+						text = new CKEDITOR.dom.text( data.linkText || ( data.type == 'email' ?
+							data.email.address : attributes.set[ 'data-cke-saved-href' ] ), editor.document );
+						range.insertNode( text );
+						range.selectNodeContents( text );
+					} else if ( selectedText !== data.linkText ) {
+						text = new CKEDITOR.dom.text( data.linkText, editor.document );
+						range.deleteContents( true );
 						range.insertNode( text );
 						range.selectNodeContents( text );
 					}
@@ -894,6 +915,8 @@
 
 						// We changed the content, so need to select it again.
 						selection.selectElement( element );
+					} else if ( data.linkText ) {
+						element.setHtml( data.linkText );
 					}
 
 					delete this._.selectedElement;

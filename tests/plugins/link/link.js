@@ -162,6 +162,19 @@
 			} );
 		},
 
+		'test edit link text': function() {
+			var bot = this.editorBot;
+
+			bot.setHtmlWithSelection( '[<a href="http://ckeditor.com">http://ckeditor.com</a>]' );
+
+			bot.dialog( 'link', function( dialog ) {
+				assert.areSame( dialog.getValueOf( 'info', 'linkDisplayText' ), 'http://ckeditor.com' );
+				dialog.setValueOf( 'info', 'linkDisplayText', 'testing 1, 2, 3' );
+				dialog.getButton( 'ok' ).click();
+				assert.areSame( '<a href="http://ckeditor.com">testing 1, 2, 3</a>', bot.getData( true ) );
+			} );
+		},
+
 		'test link passes filter': function() {
 			this.editorBot.assertInputOutput(
 				'<p><a href="http://ckeditor.com">text</a></p>',

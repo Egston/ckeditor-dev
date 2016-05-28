@@ -23,6 +23,8 @@ Fixed Issues:
 * [#13828](http://dev.ckeditor.com/ticket/13828): Fixed: Widget classes should be added to wrapper rather than widget element.
 * [#13519](http://dev.ckeditor.com/ticket/13519): Response should be more flexible.
 
+## CKEditor 4.5.10
+
 ## CKEditor 4.5.9
 
 Fixed Issues:
