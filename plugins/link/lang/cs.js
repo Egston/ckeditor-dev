@@ -19,7 +19,7 @@ CKEDITOR.plugins.setLang( 'link', 'cs', {
 	anchorName: 'Podle jména kotvy',
 	charset: 'Přiřazená znaková sada',
 	cssClasses: 'Třída stylu',
-	displayText: 'Display Text', // MISSING
+	displayText: 'Zobrazený text',
 	download: 'Force Download', // MISSING
 	emailAddress: 'E-mailová adresa',
 	emailBody: 'Tělo zprávy',
